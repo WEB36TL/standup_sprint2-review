@@ -1,45 +1,25 @@
-// ? Split this string and separate its values
+// ? Split this string and return the splitted stuff
 
 let splitThis =
-	"Nothing gives one person so much advantage over another as to remain always cool and unruffled under all circumstances. Thomas Jefferson (1743 - 1826)"
+	"Nothing gives one person so much advantage over another as to remain always cool and unruffled under all circumstances. Thomas Jefferson 1743 - 1826"
 
 function splitString(str) {
-	return
+	let test = str.split(" ")
+	return test
 }
+const splitted = splitString(splitThis)
+// console.log(splitted)
 
 // ? How old was Thomas Jefferson
-function tjAge() {
-	return
+
+function tjAge(arr) {
+	const died = arr[arr.length - 1]
+	const born = arr[arr.length - 3]
+	return died - born
 }
 
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
+// console.log(tjAge(splitted))
+
 /* ---------------------------------- Next ---------------------------------- */
 /* ---------------------------------- Next ---------------------------------- */
 /* ---------------------------------- Next ---------------------------------- */
@@ -71,11 +51,11 @@ const artists = [
 		bio:
 			"Wassily Wassilyevich Kandinsky (Russian: Васи́лий Васи́льевич Канди́нский, tr. Vasíliy Vasílʹevich Kandínskiy) (16 December [O.S. 4 December] 1866 – 13 December 1944) was a Russian painter and art theorist.",
 		wikipedia: "http://en.wikipedia.org/wiki/Wassily_Kandinsky",
-		paintings: 88
+		paintings: 288
 	},
 	{
 		id: 2,
-		name: "Diego Rivera",
+		name: "ZDiego Rivera",
 		years: "1886 - 1957",
 		genre: "Social Realism,Muralism",
 		nationality: "Mexican",
@@ -87,26 +67,33 @@ const artists = [
 ]
 
 // ? Return the name of the artist with most painting
-function mostPainting() {
-	return
+function mostPainting(arr) {
+	let artistName = ""
+	arr = arr.sort((a, b) => {
+		return b.paintings - a.paintings
+	})
+	return arr
 }
+
+// console.log(mostPainting(artists))
 
 // ? Return artist from youngest to oldest
-function sortAge() {
-	return
+function sortAge(arr) {
+	let age = arr
+		.map((item) => {
+			// return `${item.name}: ${item.years.split(" - ")[1] - item.years.split(" - ")[0]}`
+			return {
+				name: item.name,
+				age: item.years.split(" - ")[1] - item.years.split(" - ")[0]
+			}
+		})
+		.sort((a, b) => a.age - b.age)
+
+	return age
 }
 
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
-/* ---------------------------------- Next ---------------------------------- */
+// console.log(sortAge(artists))
+
 /* ---------------------------------- Next ---------------------------------- */
 /* ---------------------------------- Next ---------------------------------- */
 /* ---------------------------------- Next ---------------------------------- */
@@ -151,11 +138,11 @@ var regionalFlavors = [
 	"Oregon Blackberry",
 	"Bananas ‘n Strawberries",
 	"Mississippi Mud",
+	"Banana Nut",
 	"Rum Raisin",
 	"Creole Cream Cheese",
 	"Chocolate Almond",
 	"Fudge Brownie",
-	"Banana Nut",
 	"Black Walnut",
 	"Cotton Candy Crackle",
 	"Quarterback Crunch",
@@ -166,11 +153,21 @@ var regionalFlavors = [
 // ? Remove everything with "nut" in it
 
 function removeNut(array) {
-	return
+	for (let i = 0; i < array.length; i++) {
+		if (array[i].includes("nut") || array[i].includes("Nut")) {
+			array.splice(i, 2)
+		}
+	}
+
+	return array
 }
+
+console.log("Nut --> ", removeNut(regionalFlavors))
 
 // ? Add a new flavor
 
-function addFlavor() {
+function addFlavor(array) {
 	return
 }
+
+// console.log(addFlavor(regionalFlavors))
