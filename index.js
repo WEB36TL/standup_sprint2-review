@@ -138,11 +138,11 @@ var regionalFlavors = [
 	"Oregon Blackberry",
 	"Bananas ‘n Strawberries",
 	"Mississippi Mud",
-	"Banana Nut",
 	"Rum Raisin",
 	"Creole Cream Cheese",
 	"Chocolate Almond",
 	"Fudge Brownie",
+	"Banana Nut",
 	"Black Walnut",
 	"Cotton Candy Crackle",
 	"Quarterback Crunch",
@@ -155,7 +155,7 @@ var regionalFlavors = [
 function removeNut(array) {
 	for (let i = 0; i < array.length; i++) {
 		if (array[i].includes("nut") || array[i].includes("Nut")) {
-			array.splice(i, 2)
+			array.splice(i)
 		}
 	}
 
